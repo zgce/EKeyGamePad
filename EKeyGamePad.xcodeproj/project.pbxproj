@@ -27,6 +27,8 @@
 		D37D734A193231810099A269 /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D37D7349193231810099A269 /* libboost_system.a */; };
 		D3827F381944549B009ABA04 /* KeyMapInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D3827F371944549B009ABA04 /* KeyMapInfo.m */; };
 		D39903D11936306300D71042 /* convertkey.xml in Resources */ = {isa = PBXBuildFile; fileRef = D39903D01936306300D71042 /* convertkey.xml */; };
+		D39AB2C21951D96E004133D3 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D39AB2C01951D96E004133D3 /* LICENSE */; };
+		D39AB2C31951D96E004133D3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D39AB2C11951D96E004133D3 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		D3827F361944549B009ABA04 /* KeyMapInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyMapInfo.h; sourceTree = "<group>"; };
 		D3827F371944549B009ABA04 /* KeyMapInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyMapInfo.m; sourceTree = "<group>"; };
 		D39903D01936306300D71042 /* convertkey.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = convertkey.xml; sourceTree = "<group>"; };
+		D39AB2C01951D96E004133D3 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		D39AB2C11951D96E004133D3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,8 @@
 		D37D72F71932120F0099A269 = {
 			isa = PBXGroup;
 			children = (
+				D39AB2C01951D96E004133D3 /* LICENSE */,
+				D39AB2C11951D96E004133D3 /* README.md */,
 				D37D73091932120F0099A269 /* EKeyGamePad */,
 				D37D73271932120F0099A269 /* EKeyGamePadTests */,
 				D37D73021932120F0099A269 /* Frameworks */,
@@ -272,8 +278,10 @@
 				D37D730E1932120F0099A269 /* InfoPlist.strings in Resources */,
 				D37D731C1932120F0099A269 /* Images.xcassets in Resources */,
 				D37D73141932120F0099A269 /* Credits.rtf in Resources */,
+				D39AB2C21951D96E004133D3 /* LICENSE in Resources */,
 				D37D7346193230C00099A269 /* keycode.xml in Resources */,
 				D39903D11936306300D71042 /* convertkey.xml in Resources */,
+				D39AB2C31951D96E004133D3 /* README.md in Resources */,
 				D37D731A1932120F0099A269 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
