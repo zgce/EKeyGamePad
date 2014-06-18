@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConvertKey>
+    <Aixes>
+        <Aix num="2" value="-1.0" key="V_KEY_LEFT"/>
+        <Aix num="2" value="1.0" key="V_KEY_RIGHT"/>
+        <Aix num="3" value="-1.0" key="V_KEY_UP"/>
+        <Aix num="3" value="1.0" key="V_KEY_DOWN"/>
+    </Aixes>
+    <Buttons>
+        <Button num="0" value="1.0" key="V_KEY_U"/>
+        <Button num="1" value="1.0" key="V_KEY_S"/>
+        <Button num="2" value="1.0" key="V_KEY_B"/>
+        <Button num="3" value="1.0" key="V_KEY_R"/>
+    </Buttons>
+</ConvertKey>
