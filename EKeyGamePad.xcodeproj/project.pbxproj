@@ -23,8 +23,6 @@
 		D37D7341193230AE0099A269 /* KeyEvent.mm in Sources */ = {isa = PBXBuildFile; fileRef = D37D733C193230AE0099A269 /* KeyEvent.mm */; };
 		D37D7342193230AE0099A269 /* KeyEventProcessor.mm in Sources */ = {isa = PBXBuildFile; fileRef = D37D733E193230AE0099A269 /* KeyEventProcessor.mm */; };
 		D37D7346193230C00099A269 /* keycode.xml in Resources */ = {isa = PBXBuildFile; fileRef = D37D7344193230C00099A269 /* keycode.xml */; };
-		D37D7348193231790099A269 /* libboost_filesystem.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D37D7347193231790099A269 /* libboost_filesystem.a */; };
-		D37D734A193231810099A269 /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D37D7349193231810099A269 /* libboost_system.a */; };
 		D3827F381944549B009ABA04 /* KeyMapInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D3827F371944549B009ABA04 /* KeyMapInfo.m */; };
 		D39903D11936306300D71042 /* convertkey.xml in Resources */ = {isa = PBXBuildFile; fileRef = D39903D01936306300D71042 /* convertkey.xml */; };
 		D39AB2C21951D96E004133D3 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D39AB2C01951D96E004133D3 /* LICENSE */; };
@@ -70,8 +68,6 @@
 		D37D733D193230AE0099A269 /* KeyEventProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyEventProcessor.h; sourceTree = "<group>"; };
 		D37D733E193230AE0099A269 /* KeyEventProcessor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = KeyEventProcessor.mm; sourceTree = "<group>"; };
 		D37D7344193230C00099A269 /* keycode.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = keycode.xml; sourceTree = "<group>"; };
-		D37D7347193231790099A269 /* libboost_filesystem.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_filesystem.a; path = ../../../../usr/local/lib/libboost_filesystem.a; sourceTree = "<group>"; };
-		D37D7349193231810099A269 /* libboost_system.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_system.a; path = ../../../../usr/local/lib/libboost_system.a; sourceTree = "<group>"; };
 		D3827F361944549B009ABA04 /* KeyMapInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyMapInfo.h; sourceTree = "<group>"; };
 		D3827F371944549B009ABA04 /* KeyMapInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyMapInfo.m; sourceTree = "<group>"; };
 		D39903D01936306300D71042 /* convertkey.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = convertkey.xml; sourceTree = "<group>"; };
@@ -85,8 +81,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D37D73041932120F0099A269 /* Cocoa.framework in Frameworks */,
-				D37D7348193231790099A269 /* libboost_filesystem.a in Frameworks */,
-				D37D734A193231810099A269 /* libboost_system.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,8 +120,6 @@
 		D37D73021932120F0099A269 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D37D7349193231810099A269 /* libboost_system.a */,
-				D37D7347193231790099A269 /* libboost_filesystem.a */,
 				D37D73031932120F0099A269 /* Cocoa.framework */,
 				D37D73221932120F0099A269 /* XCTest.framework */,
 				D37D73051932120F0099A269 /* Other Frameworks */,
@@ -399,7 +391,12 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
+				"OTHER_LDFLAGS[arch=*]" = (
+					/usr/local/lib/libboost_system.a,
+					/usr/local/lib/libboost_filesystem.a,
+				);
 				SDKROOT = macosx;
+				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
 		};
@@ -431,7 +428,12 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				OTHER_LDFLAGS = (
+					/usr/local/lib/libboost_filesystem.a,
+					/usr/local/lib/libboost_system.a,
+				);
 				SDKROOT = macosx;
+				VALID_ARCHS = x86_64;
 			};
 			name = Release;
 		};
