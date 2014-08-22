@@ -49,7 +49,7 @@ static std::string keyConvertFile(void) {
     }
     
     processor->joyNum = nCurJoyNum;
-    joy_t * joysitck = getJoystick(nCurJoyNum);
+    ekjoy_t * joysitck = getJoystick(nCurJoyNum);
     
     resetKeyVector(processor->aixKeys, getJoystickAixCount(joysitck));
     resetKeyVector(processor->buttonKeys, getJoystickButtonCount(joysitck));

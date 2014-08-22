@@ -34,6 +34,7 @@
 #import <CoreFoundation/CoreFoundation.h>
 #import <IOKit/hid/IOHIDLib.h>
 #import <IOKit/hid/IOHIDKeys.h>
+#import <IOKit/IOCFPlugIn.h>
 #import <Kernel/IOKit/hidsystem/IOHIDUsageTables.h>
 #import "Joystick.h"
 
@@ -59,8 +60,8 @@ typedef struct GamePadT {
     float * vAixes;
     float * vButtons;
     
-} joy_t;
-static joy_t g_joy[JOY_MAX_COUNT];
+} ekjoy_t;
+static ekjoy_t g_joy[JOY_MAX_COUNT];
 
 typedef struct {
     IOHIDElementCookie cookie;
@@ -71,7 +72,7 @@ typedef struct {
     long maxReport;
 } joyelement_t;
 
-static void removeJoystick(joy_t * joystick) {
+static void removeJoystick(ekjoy_t * joystick) {
     if(!joystick->present) {
         return;
     }
@@ -103,12 +104,12 @@ static void removeJoystick(joy_t * joystick) {
 }
 
 static void removeCallback(void * target, IOReturn result, void * refcon, void * sender) {
-    removeJoystick((joy_t*)refcon);
+    removeJoystick((ekjoy_t*)refcon);
 }
 
 static void getElementCFArrayHandler(void const * value, void * parameter);
     
-static void addJoystickElement(joy_t * joystick, CFTypeRef elementRef) {
+static void addJoystickElement(ekjoy_t * joystick, CFTypeRef elementRef) {
     long elementType = 0, usagePage = 0, usage = 0;
     CFMutableArrayRef elementsArray = NULL;
     
@@ -194,11 +195,11 @@ static void addJoystickElement(joy_t * joystick, CFTypeRef elementRef) {
 
 static void getElementCFArrayHandler(void const * value, void * parameter) {
     if(CFGetTypeID(value) == CFDictionaryGetTypeID()) {
-        addJoystickElement((joy_t*) parameter, (CFTypeRef) value);
+        addJoystickElement((ekjoy_t*) parameter, (CFTypeRef) value);
     }
 }
 
-static long getElementValue(joy_t * joystick, joyelement_t * element) {
+static long getElementValue(ekjoy_t * joystick, joyelement_t * element) {
     IOReturn result = kIOReturnSuccess;
     IOHIDEventStruct hidEvent;
     hidEvent.value = 0;
@@ -222,7 +223,7 @@ static long getElementValue(joy_t * joystick, joyelement_t * element) {
 
 int initJoysticks(void) {
     for(unsigned pos = 0; pos < JOY_MAX_COUNT; ++pos) {
-        joy_t * joystick = &(g_joy[pos]);
+        ekjoy_t * joystick = &(g_joy[pos]);
         memset(joystick->name, 0, sizeof(joystick->name));
         joystick->interface = 0;
         joystick->present = false;
@@ -306,7 +307,7 @@ int initJoysticks(void) {
             return false;
         }
         
-        joy_t * joystick = &(g_joy[joyCount]);
+        ekjoy_t * joystick = &(g_joy[joyCount]);
         joystick->present = true;
         HRESULT plugInResult = (*ppPlugInInterface)->QueryInterface(
                                                                     ppPlugInInterface,
@@ -368,12 +369,12 @@ int initJoysticks(void) {
 
 void terminateJoysticks(void) {
     for(int pos = 0; pos < JOY_MAX_COUNT; ++pos) {
-        joy_t * joystick = &(g_joy[pos]);
+        ekjoy_t * joystick = &(g_joy[pos]);
         removeJoystick(joystick);
     }
 }
 
-joy_t * getJoystick(long n) {
+ekjoy_t * getJoystick(long n) {
     if((n < JOY_MAX_COUNT) && g_joy[n].present) {
         return &(g_joy[n]);
     }
@@ -382,19 +383,19 @@ joy_t * getJoystick(long n) {
     }
 }
 
-char const * getJoystickName(joy_t * joystick) {
+char const * getJoystickName(ekjoy_t * joystick) {
     return joystick->name;
 }
 
-long getJoystickAixCount(joy_t * joystick) {
+long getJoystickAixCount(ekjoy_t * joystick) {
     return joystick->nAixCount;
 }
 
-long getJoystickButtonCount(joy_t * joystick) {
+long getJoystickButtonCount(ekjoy_t * joystick) {
     return joystick->nButtonCount;
 }
 
-bool joystickPresent(joy_t * joystick) {
+bool joystickPresent(ekjoy_t * joystick) {
     if(!joystick->present) {
         return false;
     }
@@ -445,14 +446,14 @@ bool joystickPresent(joy_t * joystick) {
     return true;
 }
 
-float const * getJoystickAixStatus(joy_t * joystick, long * nAixCount) {
+float const * getJoystickAixStatus(ekjoy_t * joystick, long * nAixCount) {
     if(nAixCount) {
         *nAixCount = joystick->nAixCount;
     }
     return joystick->vAixes;
 }
 
-float const * getJoystickButtonStatus(joy_t * joystick, long * nButtonCount) {
+float const * getJoystickButtonStatus(ekjoy_t * joystick, long * nButtonCount) {
     if(nButtonCount) {
         *nButtonCount = joystick->nButtonCount;
     }

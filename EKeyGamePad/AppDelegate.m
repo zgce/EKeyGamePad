@@ -59,7 +59,7 @@
     NSLog(@"select index: %ld %ld", nCurJoyNum, [[self cmbGamepad] numberOfItems]);
     if(-1 != nCurJoyNum && nCurJoyNum < [[self cmbGamepad] numberOfItems]) {
         [keyprocessor start:nCurJoyNum];
-        joy_t *joy = getJoystick(nCurJoyNum);
+        ekjoy_t *joy = getJoystick(nCurJoyNum);
         vp = (unichar*)malloc(getJoystickAixCount(joy) * sizeof(unichar));
         bp = (unichar*)malloc(getJoystickButtonCount(joy) * sizeof(unichar));
         [[self window] makeFirstResponder:[self btnSelConf]];
@@ -89,7 +89,7 @@
 
 - (void)onStatusTimer:(NSTimer*)timer {
     if(-1 != nCurJoyNum && nCurJoyNum < [[self cmbGamepad] numberOfItems]) {
-        joy_t *joy = getJoystick(nCurJoyNum);
+        ekjoy_t *joy = getJoystick(nCurJoyNum);
         
         long nAixCount = 0, nButtonCount = 0;
         float const * aixes = getJoystickAixStatus(joy, &nAixCount);
@@ -115,7 +115,7 @@
             ButtonValues:(float const *)buttons
              ButtonCount:(long)nButtonCount
 {
-    joy_t * joy = getJoystick(nJoyNum);
+    ekjoy_t * joy = getJoystick(nJoyNum);
     NSMutableString *txt = [NSMutableString stringWithFormat:@"Select GamePad[%s]", getJoystickName(joy)];
     [txt appendString:[NSString stringWithFormat:@"\n\tAix[%ld]\t", nAixCount]];
     for(long pos = 0; pos < nAixCount; ++pos) {

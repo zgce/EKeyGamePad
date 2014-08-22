@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D338693419A0F81900469620 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D338693319A0F81900469620 /* IOKit.framework */; };
 		D37D73041932120F0099A269 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D37D73031932120F0099A269 /* Cocoa.framework */; };
 		D37D730E1932120F0099A269 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D37D730C1932120F0099A269 /* InfoPlist.strings */; };
 		D37D73101932120F0099A269 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D37D730F1932120F0099A269 /* main.m */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D338693319A0F81900469620 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		D37D73001932120F0099A269 /* EKeyGamePad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EKeyGamePad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D37D73031932120F0099A269 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D37D73061932120F0099A269 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -80,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D338693419A0F81900469620 /* IOKit.framework in Frameworks */,
 				D37D73041932120F0099A269 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -120,6 +123,7 @@
 		D37D73021932120F0099A269 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D338693319A0F81900469620 /* IOKit.framework */,
 				D37D73031932120F0099A269 /* Cocoa.framework */,
 				D37D73221932120F0099A269 /* XCTest.framework */,
 				D37D73051932120F0099A269 /* Other Frameworks */,
@@ -363,7 +367,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -406,7 +410,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;

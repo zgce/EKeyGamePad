@@ -65,7 +65,7 @@ static void process_key_event(KeyEventVector& vbuf, long pos, std::vector<unsign
 
 void process_key_event(long nJoyPos, JoyConvertKey const & convertor, KeyEventVector & aixKeys, KeyEventVector & buttonKeys) {
     if(-1 != nJoyPos && nJoyPos < JOY_MAX_COUNT) {
-        joy_t *joy = getJoystick(nJoyPos);
+        ekjoy_t *joy = getJoystick(nJoyPos);
         long nAixCount = 0, nButtonCount = 0;
         joystickPresent(joy);
         float const * aixes = getJoystickAixStatus(joy, &nAixCount);
